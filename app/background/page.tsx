@@ -6,7 +6,7 @@ import React from "react";
 
 const AIAnimatedBackground: React.FC = () => {
   return (
-    <div className="fixed inset-0 w-full h-full overflow-hidden bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 z[-999]">
+    <div className="fixed inset-0 w-full h-full overflow-hidden bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 z-[-999]">
       <svg
         className="absolute w-full h-full"
         xmlns="http://www.w3.org/2000/svg"

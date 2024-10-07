@@ -4,8 +4,8 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import AIAnimatedBackground from "./background/page";
-import { ThemeSwitcher } from "./modes/page";
-import { ThemeProvider } from "./modes/themeprovider";
+
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,9 +31,14 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <ThemeProvider>
-          <body
-            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
           >
             {/* <SignedOut>
             <SignInButton />
@@ -41,11 +46,11 @@ export default function RootLayout({
           <SignedIn>
             <UserButton />
           </SignedIn> */}
-            <AIAnimatedBackground />
 
+            {/* <AIAnimatedBackground /> */}
             {children}
-          </body>
-        </ThemeProvider>
+          </ThemeProvider>
+        </body>
       </html>
     </ClerkProvider>
   );
